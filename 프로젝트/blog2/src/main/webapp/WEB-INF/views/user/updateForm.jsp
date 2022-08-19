@@ -3,13 +3,13 @@
     <%@ include file="../layout/header.jsp" %>
 <div class="container">
 	<form>
-		<input type="hidden" id="id" value="${principal.user.id}"/>
+		<input type="hidden" id="id" value="${principal.person.id}"/>
 		<div class="form-group">
-			<label for="username">아이디</label><input type="text" value="${principal.user.username }"
+			<label for="username">아이디</label><input type="text" value="${principal.person.username }"
 					class="form-control" placeholder="Enter Username" id ="username" readonly>
 		</div>
 		<div class="form-group">
-			<label for="email">이메일</label><input type="email" value="${principal.user.email }"
+			<label for="email">이메일</label><input type="email" value="${principal.person.email }"
 					class="form-control" placeholder="Enter email" id ="email" >
 		</div>
 		<div class="form-group">

@@ -10,7 +10,7 @@ let index={
 		
 		$("#btn-fid").on("click",()=>{
 			location.href='../user/find_id_form.do';
-		})
+		});
 		/*
 		$("#btn-login").on("click",()=>{
 			this.login();
