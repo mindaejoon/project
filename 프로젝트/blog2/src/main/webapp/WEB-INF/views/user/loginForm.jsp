@@ -13,10 +13,10 @@
 			<input type="password" class="form-control" placeholder="Enter password" id="password" name="password">		
 		</div>
 		<button type="submit" id="btn-login" class="btn btn-primary">로그인</button>	
+
+	</form>
 	<button id="btn-fid" class="btn btn-primary">아이디 찾기</button>
 	<button id="btn-fpwd" class="btn btn-primary">비밀번호 찾기</button>	
-	</form>
-	
 </div>
 <!--  <script src="/js/user.js"></script>-->
 <br/>
