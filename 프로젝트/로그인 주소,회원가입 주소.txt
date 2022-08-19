@@ -1,0 +1,4 @@
+http://localhost:8081/auth/loginForm
+
+http://localhost:8081/auth/joinForm
+
