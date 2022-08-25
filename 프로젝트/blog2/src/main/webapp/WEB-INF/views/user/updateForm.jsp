@@ -26,6 +26,7 @@
 		</div>
 	</form>
 	<button id="btn-update" class="btn btn-primary">회원수정완료</button>
+	<button onclick="history.go(-1)" class="btn btn-primary">뒤로</button>
 	</div>
 <script src="/js/user.js"></script>
 <br/> 		

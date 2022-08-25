@@ -10,5 +10,10 @@ import com.cos.blog.model.person;
 @Repository
 public interface personRepository extends JpaRepository<person,Integer>{
 //person findByUsernameAndPassword(String username,String password);
-	Optional<person> findByUsername(String username);
+	Optional<person> findByUsername(String name);
+
+	Optional<person> findByEmail(String email);
+	
+	Optional<person> findByEmailAndUsername(String email, String name);
+
 }

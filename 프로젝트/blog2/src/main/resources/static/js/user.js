@@ -8,16 +8,71 @@ let index={
 			this.update();
 		});
 		
-		$("#btn-fid").on("click",()=>{
-			location.href='../user/find_id_form.do';
+		$("#btn-findId").on("click",()=>{
+			this.find();
 		});
+		
+		$("#btn-findpwd").on("click",()=>{
+			this.findpwd();
+		});
+		
+	
 		/*
 		$("#btn-login").on("click",()=>{
 			this.login();
 		});
 	*/
 	},
+	findpwd: function(){
+		var pwd = $("#pwd").val();
+		var pwdc = $("#pwd_check").val();
+		if(pwd == pwdc){
+		let data={
+			username: $("#username").val(),
+			name: $("#name").val(),
+			email: $("#email").val(),
+			tel: $("#tel").val(),
+			password: pwd
+		};
+		$.ajax({
+			type:"POST",
+			url:"/auth/findpwd",
+			data:JSON.stringify(data),
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+				alert(resp.data);
+				if(resp.status !=500){
+				location.href="/auth/loginForm";
+				}
+		}).fail(function(error){
+				alert(error.data);
+				
+		});
+		}else {
+			alert("비밀번호가 다릅니다.");
+		}
+	},
 	
+	
+	find: function(){
+		let data={
+			email: $("#email").val()
+			
+		};
+		$.ajax({
+			type:"POST",
+			url:"/auth/findId",
+			data:JSON.stringify(data),
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+			alert(resp.data);
+			location.href="/";
+		}).fail(function(error){
+			alert("존재하지 않은 회원입니다.");
+		});
+	},
 	
 	save: function(){
 		let data={
@@ -38,7 +93,7 @@ let index={
 			alert("회원가입이 완료되었습니다.");
 			location.href="/";
 		}).fail(function(error){
-			alert(JSON.stringify(error));
+			alert("회원가입에 실패하였습니다.(사유:이미 가입된 아이디 혹은 이메일 입니다)");
 		});
 	},
 	
@@ -60,7 +115,7 @@ let index={
 			alert("회원수정이 완료되었습니다.");
 			location.href="/";
 		}).fail(function(error){
-			alert(JSON.stringify(error));
+			alert("올바르지 않은 형식입니다.");
 		});
 	}
 	/*

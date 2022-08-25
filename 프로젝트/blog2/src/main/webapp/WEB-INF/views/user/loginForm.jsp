@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
-    
+   
 <div class="container">
 	<form action="/auth/loginProc" method="POST">
 		<div class="form-group">
@@ -15,9 +15,10 @@
 		<button type="submit" id="btn-login" class="btn btn-primary">로그인</button>	
 
 	</form>
-	<button id="btn-fid" class="btn btn-primary">아이디 찾기</button>
-	<button id="btn-fpwd" class="btn btn-primary">비밀번호 찾기</button>	
+	<a href="/auth/findId">아이디 찾기</a>
+	<a href="/auth/findpwd">비밀번호 재설정하기</a>
 </div>
+
 <!--  <script src="/js/user.js"></script>-->
 <br/>
 <%@ include file="../layout/footer.jsp"%>

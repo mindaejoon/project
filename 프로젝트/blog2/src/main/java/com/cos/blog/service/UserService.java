@@ -24,7 +24,9 @@ public class UserService {
 		String rawPassword =person.getPassword();
 		String encPassword = encodeer.encode(rawPassword);
 		person.setPassword(encPassword);
+		
 		person.setRoles(RoleType.USER);
+	
 		PersonRepository.save(person);
 	}
 	
@@ -43,10 +45,17 @@ public class UserService {
 		persistance.setTel(person.getTel());
 	}
 	
-//	@Transactional
-//	public person 로그인(person person) {
-//		return userRepository.findByUsernameAndPassword(person.getUsername()
-//				,person.getPassword());
-//	}
+	
+	@Transactional
+	public person 회원찾기(person person) {
+		System.out.println(person.getEmail());
+		person persistance=PersonRepository.findByEmail(person.getEmail())
+				.orElseThrow(() ->{
+					return new IllegalArgumentException("회원 찾기 실패");
+		});
+		return persistance;
+
+	}
+	
 	
 }
