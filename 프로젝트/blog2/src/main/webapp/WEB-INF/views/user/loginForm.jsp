@@ -15,8 +15,8 @@
 		<button type="submit" id="btn-login" class="btn btn-primary">로그인</button>	
 
 	</form>
-	<a href="/auth/findId">아이디 찾기</a>
-	<a href="/auth/findpwd">비밀번호 재설정하기</a>
+	<a href="/auth/findId" class="btn btn-primary">아이디 찾기</a>
+	<a href="/auth/findpwd" class="btn btn-primary">비밀번호 재설정하기</a>
 </div>
 
 <!--  <script src="/js/user.js"></script>-->

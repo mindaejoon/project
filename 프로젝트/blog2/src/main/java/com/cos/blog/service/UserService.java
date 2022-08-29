@@ -57,5 +57,10 @@ public class UserService {
 
 	}
 	
+	@Transactional
+	public void 회원탈퇴(int id) {
+		PersonRepository.deleteById(id);
+	}
+	
 	
 }

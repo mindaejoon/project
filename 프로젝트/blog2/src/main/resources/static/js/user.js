@@ -16,6 +16,10 @@ let index={
 			this.findpwd();
 		});
 		
+		$("#btn-delete").on("click",()=>{
+			this.delete();
+		});
+		
 	
 		/*
 		$("#btn-login").on("click",()=>{
@@ -23,6 +27,24 @@ let index={
 		});
 	*/
 	},
+	
+	delete: function(){
+		var id=$("#id").val();
+		
+		$.ajax({
+			type:"DELETE",
+			url:"/user/updateForm/"+id,
+			dataType:"json"
+		}).done(function(resp){
+			alert("탈퇴 완료");
+			
+			location.href="/logout";
+			
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+	},
+	
 	findpwd: function(){
 		var pwd = $("#pwd").val();
 		var pwdc = $("#pwd_check").val();
@@ -34,6 +56,7 @@ let index={
 			tel: $("#tel").val(),
 			password: pwd
 		};
+		
 		$.ajax({
 			type:"POST",
 			url:"/auth/findpwd",
@@ -67,8 +90,11 @@ let index={
 			contentType:"application/json; charset=utf-8",
 			dataType:"json"
 		}).done(function(resp){
-			alert(resp.data);
-			location.href="/";
+			if(resp.status !=500){
+			alert("사용자의 아이디는 "+resp.data+"입니다. ");
+			location.href="/";}else{
+				alert("사용자의 이메일을 잘못입력하셨습니다.")
+			}
 		}).fail(function(error){
 			alert("존재하지 않은 회원입니다.");
 		});

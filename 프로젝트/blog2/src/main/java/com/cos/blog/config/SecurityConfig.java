@@ -43,5 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.loginPage("/auth/loginForm")
 			.loginProcessingUrl("/auth/loginProc")
 			.defaultSuccessUrl("/");
+		
+//		http.logout().logoutUrl("/user/updateForm/{id}").logoutSuccessUrl("/auth/loginForm");
 	}
 }

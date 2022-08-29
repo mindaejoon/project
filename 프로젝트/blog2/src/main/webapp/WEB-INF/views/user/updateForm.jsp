@@ -9,23 +9,25 @@
 					class="form-control" placeholder="Enter Username" id ="username" readonly>
 		</div>
 		<div class="form-group">
-			<label for="email">이메일</label><input type="email" value="${principal.person.email }"
+			<label for="email">수정할 이메일</label><input type="email" value="${principal.person.email }"
 					class="form-control" placeholder="Enter email" id ="email" >
 		</div>
 		<div class="form-group">
-			<label for="pwd">비밀번호</label><input type="password" 
+			<label for="pwd">수정할 비밀번호</label><input type="password" 
 					class="form-control" placeholder="Enter password" id ="password" >
 		</div>
 		<div class="form-group">
-			<label for="tel">전화번호</label><input type="tel" 
+			<label for="tel">수정할 전화번호</label><input type="tel" 
 					class="form-control" placeholder="Enter phone number" id ="tel" >
 		</div>
 		<div class="form-group">
-			<label for="address">주소</label><input type="text" 
+			<label for="address">수정할 주소</label><input type="text" 
 					class="form-control" placeholder="Enter address" id ="address" >
 		</div>
 	</form>
+	
 	<button id="btn-update" class="btn btn-primary">회원수정완료</button>
+	<button id="btn-delete" class="btn btn-primary" >회원 탈퇴</button>
 	<button onclick="history.go(-1)" class="btn btn-primary">뒤로</button>
 	</div>
 <script src="/js/user.js"></script>

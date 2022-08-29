@@ -3,6 +3,8 @@ package com.cos.blog.controller.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +34,7 @@ public class UserApiController {
 	
 	@PutMapping("/user")
 	public ResponseDto<Integer> update(@RequestBody person person){
+		
 		userService.회원수정(person);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
@@ -67,7 +70,13 @@ public class UserApiController {
 		
 		return new ResponseDto<String>(500,"회원정보가 틀렸습니다.");
 	}
-
+	
+	@DeleteMapping("/user/updateForm/{id}")
+	public ResponseDto<Integer> deleteById(@PathVariable int id){
+//		System.out.println("111");
+		userService.회원탈퇴(id);
+		return new ResponseDto<Integer> (HttpStatus.OK.value(),1);
+	}
 	
 
 	
